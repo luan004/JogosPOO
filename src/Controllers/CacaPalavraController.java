@@ -1,11 +1,15 @@
 package Controllers;
 
 import View.CacaPalavraView;
+
+import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 public class CacaPalavraController {
 
-    static String[] words = {"PALAVRA", "BRASIL", "TECLADO"};
+    static String[] words = {"palavra", "brasil", "teclado", "cachorro", "caçamba", "cadeira", "professor"};
+    static String selectedWord;
 
     public static void initialize()
     {
@@ -16,6 +20,26 @@ public class CacaPalavraController {
         char[][] matrix = genMatrix(range);
         matrix = insertWord(matrix);
         CacaPalavraView.showMatrix(range, matrix);
+
+        tentativasController();
+    }
+
+    private static void tentativasController()
+    {
+        Scanner s = new Scanner(System.in);
+        for (int i = 1; i <= 3; i++){
+            System.out.print("\nInsira a palavra: ");
+            String tentativa = s.nextLine();
+
+            if (Objects.equals(tentativa.toLowerCase(), selectedWord)) {
+                System.out.println("\nParabéns! Você acertou!!!");
+                break;
+            } else if (i == 3) {
+                System.out.println("\nIncorreto... Você não tem mais tentativas... A palavra correta era: " + selectedWord);
+            } else {
+                System.out.println("\nIncorreto... Você ainda tem " + (3-i) + " tentativas...");
+            }
+        }
     }
 
     private static char[][] genMatrix(int range)
@@ -37,7 +61,8 @@ public class CacaPalavraController {
     {
         Random random = new Random();
 
-        char[] wordChars = words[random.nextInt(words.length)].toCharArray();
+        selectedWord = words[random.nextInt(words.length)];
+        char[] wordChars = selectedWord.toCharArray();
 
         if (random.nextBoolean())
         {
