@@ -2,23 +2,30 @@ package View;
 
 import java.util.Scanner;
 
-public class StartMenu {
+public class MainView {
     public static int getMenuOption()
     {
         System.out.println("Qual jogo você quer jogar hoje?\n\n[1] - Jogo da Descoberta\n[2] - Caça Palavras\n[3] - Sair...");
         System.out.print("\nEai? insira a sua opção: ");
 
-        int opc = (new Scanner(System.in)).nextInt();
+        int opc = 0;
+        try {
+            opc = (new Scanner(System.in)).nextInt();
+        } catch (Exception _) {}
 
-        if (opc == 1 || opc == 2) {
-            return opc;
-        } else if (opc == 3) {
-            System.exit(0);
-        } else {
-            System.out.println("\n------------------------------\n[ERRO] - Essa opção ai não existe não...\n------------------------------\n");
-            getMenuOption();
+        switch (opc) {
+            case 1:
+            case 2:
+                return opc;
+            case 0:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("\n------------------------------\n[ERRO] - Essa opção ai não existe não...\n------------------------------\n");
+                getMenuOption();
+                break;
         }
-        return opc;
+        return 0;
     }
 
     public static void loadStartTitle()

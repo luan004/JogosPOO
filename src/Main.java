@@ -1,7 +1,7 @@
-import Controllers.Game;
+import Controllers.MainController;
 
 public class Main {
     public static void main(String[] args) {
-        Game.boot();
+        MainController.boot();
     }
 }
