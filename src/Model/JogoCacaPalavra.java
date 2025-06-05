@@ -63,7 +63,7 @@ public class JogoCacaPalavra implements JogoInterface {
             }
         }
 
-        this.word = words[random.nextInt(words.length)].toUpperCase();
+        this.word = words[random.nextInt(words.length)];
         char[] wordChars = this.word.toCharArray();
 
         if (random.nextBoolean())

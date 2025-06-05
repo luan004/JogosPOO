@@ -50,6 +50,9 @@ public class JogoDescoberta implements JogoInterface {
                     }
                     System.out.println("\n-----------------------------------------------\n" +
                             "Você errou... Tentativas restantes: " + (this.tentativas - 1 - i));
+                            if ((this.tentativas - 1 - i) == 0) {
+                                System.out.println("A palavra correta era: " + this.word);
+                            }
                     break;
             }
         }

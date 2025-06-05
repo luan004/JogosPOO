@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("\n\n       __                                  ____  ____  ____ \n" +
+            System.out.println("\n\n2       __                                  ____  ____  ____ \n" +
                     "      / /___  ____ _____  _____   ___     / __ \\/ __ \\/ __ \\\n" +
                     " __  / / __ \\/ __ `/ __ \\/ ___/  / _ \\   / /_/ / / / / / / /\n" +
                     "/ /_/ / /_/ / /_/ / /_/ (__  )  /  __/  / ____/ /_/ / /_/ / \n" +
